@@ -10,13 +10,14 @@ Essa Azure Custom Policy impõe um padrão de nomenclatura para Máquinas Virtua
 
 ### Propriedades Gerais:
 ```json
+
 {
   "displayName": "VM - padrao de nomenclatura",
   "policyType": "Custom",
   "mode": "All",
   "version": "1.0.0"
 }
-
+```
 displayName: Nome amigável da política, indicando que ela define um padrão de nomenclatura para VMs.
 
 policyType: Custom significa que essa política foi criada pelo usuário, não é uma das políticas padrão da Microsoft.
@@ -29,7 +30,7 @@ Regras da Política (policyRule)
 A política usa uma condição if para verificar se a VM segue o padrão de nomenclatura. Se não seguir, o then bloqueia a criação.
 
 Condição (if)
-
+```json
 "if": {
   "allOf": [
     {
@@ -46,7 +47,7 @@ Condição (if)
     }
   ]
 }
-
+```
 field: "type", equals: "Microsoft.Compute/virtualMachines"
 
 Aplica-se apenas a VMs.
@@ -68,10 +69,11 @@ vm- → Prefixo fixo.
 ### → Três números obrigatórios.
 
 Ação (then)
+```json
 "then": {
   "effect": "deny"
 }
-
+```
 effect: "deny" impede a criação da VM se ela não seguir o padrão de nomenclatura.
 
 Resumo
@@ -80,3 +82,5 @@ A política força um padrão de nomenclatura para Máquinas Virtuais (VMs) no A
 Se o nome da VM não seguir o formato "vm-????-...-###", a criação será negada.
 
 Isso ajuda a manter um padrão organizacional e facilitar a identificação das VMs.
+
+```
