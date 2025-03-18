@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "displayName": "VM - padrao de nomenclatura",
+    "policyType": "Custom",
+    "mode": "All",
+    "version": "1.0.0",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "allOf": [
+              {
+                "field": "name",
+                "notMatch": "vm-????-...-###"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
