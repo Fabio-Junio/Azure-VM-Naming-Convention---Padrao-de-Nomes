@@ -1,4 +1,4 @@
-# Azure-VM-Naming-Convention---Padrao-de-Nomes
+# Azure-VM-Naming-Convention-Padrao-de-Nomes
 Padronize a nomenclatura de suas VM's com o Azure Custom Policy
 
 Essa Azure Custom Policy impõe um padrão de nomenclatura para Máquinas Virtuais (VMs) no Azure. Vamos analisar os parâmetros principais:
